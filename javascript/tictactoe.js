@@ -30,7 +30,32 @@ function makeMove(pos) {
 }
 
 function botMove() {
-    // Simple bot: pick random empty cell
+    // 1. Cherche à gagner
+    for (let i = 0; i < 9; i++) {
+        if (board[i] === ' ') {
+            board[i] = 'O';
+            if (checkWinner() === 'O') {
+                winner = 'O';
+                updateUI();
+                return;
+            }
+            board[i] = ' ';
+        }
+    }
+    // 2. Bloque l'adversaire
+    for (let i = 0; i < 9; i++) {
+        if (board[i] === ' ') {
+            board[i] = 'X';
+            if (checkWinner() === 'X') {
+                board[i] = 'O';
+                winner = checkWinner();
+                updateUI();
+                return;
+            }
+            board[i] = ' ';
+        }
+    }
+    // 3. Sinon, joue aléatoirement
     const empty = board.map((v, i) => v === ' ' ? i : null).filter(i => i !== null);
     if (empty.length > 0) {
         const move = empty[Math.floor(Math.random() * empty.length)];
