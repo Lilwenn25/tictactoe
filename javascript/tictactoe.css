@@ -2,7 +2,8 @@
 #board {
     margin-bottom: 10px;
 }
-#board > div {
+
+#board>div {
     display: inline-block;
     width: 100px;
     height: 100px;
@@ -12,6 +13,7 @@
     cursor: pointer;
     margin-right: 4px;
 }
+
 h1 {
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
@@ -35,6 +37,24 @@ button {
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.board-image {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    max-width: 12%;
+    max-height: 12%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(124, 121, 121, 0.393);
+}
+
+.reset-button {
+    width: 100px;
+    height: 100px;
+    border: none;
+    cursor: pointer;
 }
 
 #status {
@@ -48,7 +68,8 @@ button {
         font-size: 60px;
     }
 
-    #board > div, button {
+    #board>div,
+    button {
         width: 80px;
         height: 80px;
         font-size: 40px;

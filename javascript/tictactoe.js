@@ -24,7 +24,7 @@ function makeMove(pos) {
         winner = checkWinner();
         updateUI();
         if (!winner && currentPlayer === 'O') {
-            botMove();
+            setTimeout(botMove, 300); // Delay for bot move
         }
     }
 }
@@ -78,6 +78,13 @@ function updateUI() {
     } else {
         status.textContent = `Au joueur ${currentPlayer} de jouer`;
     }
+}
+
+function resetGame() {
+    board.fill(' ');
+    currentPlayer = 'O';
+    winner = null;
+    updateUI();
 }
 
 // Setup UI
