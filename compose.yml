@@ -1,0 +1,8 @@
+services:
+  tictactoe:
+    image: nginx:1-alpine
+    container_name: lilwenn-tictactoe
+    ports:
+      - 8089:80
+    volumes:
+      - ./javascript:/usr/share/nginx/html
